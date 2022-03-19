@@ -1,1 +1,1 @@
-# MERN Full-Stack Ecommerce
+# MERN Full-Stack Ecommerce.
