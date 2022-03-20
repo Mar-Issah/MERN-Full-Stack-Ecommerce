@@ -1,8 +1,9 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-  height: 50px;
-  background-color: black;
+  height: 60px;
+  background-color: #000;
+  color: #fff;
 `;
 
 export const Wrapper = styled.div`
@@ -34,6 +35,11 @@ export const Input = styled.input`
   border: none;
 `;
 
+export const Logo = styled.h3`
+  font-weight: bold;
+  letter-spacing: 8px;
+`;
+
 export const Center = styled.div`
   flex: 1;
   text-align: center;
@@ -45,3 +51,11 @@ export const Right = styled.div`
   align-items: center;
   justify-content: flex-end;
 `;
+
+export const MenuItem = styled.div`
+  font-size: 14px;
+  cursor: pointer;
+  margin-left: 25px;
+
+`;
+
