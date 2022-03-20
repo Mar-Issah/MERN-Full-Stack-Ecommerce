@@ -1,8 +1,7 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-  // height: 60px;
-  // background-color: #c7c3c3;
+  background-color: #c7c3c3;
   color: #000;
 `;
 
@@ -32,7 +31,7 @@ export const SearchContainer = styled.div`
   padding: 5px;
 `;
 export const Input = styled.input`
-  border: none;
+  border: black;
   height: 20px !important;
 `;
 
