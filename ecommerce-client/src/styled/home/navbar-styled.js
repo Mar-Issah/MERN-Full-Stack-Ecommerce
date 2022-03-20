@@ -28,10 +28,9 @@ export const SearchContainer = styled.div`
   display: flex;
   align-items: center;
   margin-left: 25px;
-  padding: 5px;
 `;
 export const Input = styled.input`
-  border: black;
+  border: none;
   height: 20px !important;
 `;
 
