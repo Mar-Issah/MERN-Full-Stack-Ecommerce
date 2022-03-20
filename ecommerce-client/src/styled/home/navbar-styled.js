@@ -1,8 +1,8 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-  height: 60px;
-  background-color: #c7c3c3;
+  // height: 60px;
+  // background-color: #c7c3c3;
   color: #000;
 `;
 
