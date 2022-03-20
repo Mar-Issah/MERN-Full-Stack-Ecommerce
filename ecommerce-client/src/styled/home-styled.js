@@ -2,8 +2,8 @@ import styled from 'styled-components';
 
 export const Container = styled.div`
   height: 60px;
-  background-color: #000;
-  color: #fff;
+  background-color: #c7c3c3;
+  color: #000;
 `;
 
 export const Wrapper = styled.div`
@@ -33,6 +33,7 @@ export const SearchContainer = styled.div`
 `;
 export const Input = styled.input`
   border: none;
+  height: 20px !important;
 `;
 
 export const Logo = styled.h3`
@@ -56,6 +57,4 @@ export const MenuItem = styled.div`
   font-size: 14px;
   cursor: pointer;
   margin-left: 25px;
-
 `;
-

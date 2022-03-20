@@ -1,6 +1,6 @@
 import React from 'react';
-import { Container, Wrapper, Left, Center, Right, Language, SearchContainer, Input, Logo, MenuItem } from '../styled/home.styled';
-import { Search, ShoppingCart } from '@mui/icons-material';
+import { Container, Wrapper, Left, Center, Right, Language, SearchContainer, Input, Logo, MenuItem } from '../styled/home-styled';
+import { Search, ShoppingCartOutlined } from '@mui/icons-material';
 import { Badge } from '@mui/material';
 import { Link } from 'react-router-dom';
 
@@ -22,13 +22,13 @@ const Navbar = () => {
         <Right>
           <MenuItem>REGISTER</MenuItem>
           <MenuItem>SIGN IN</MenuItem>
-          <Link to='/cart'>
+          <a href='/'>
             <MenuItem>
               <Badge badgeContent={6} color='primary'>
-                <ShoppingCart />
+                <ShoppingCartOutlined color='primary' />
               </Badge>
             </MenuItem>
-          </Link>
+          </a>
         </Right>
       </Wrapper>
     </Container>
