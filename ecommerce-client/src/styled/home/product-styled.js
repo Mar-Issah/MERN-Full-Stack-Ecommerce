@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const Info = styled.div`
-  opacity: 0;
+  // opacity: 0;
   width: 100%;
   height: 100%;
   position: absolute;
@@ -24,7 +24,7 @@ export const Container = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #f5fbfd;
+  background-color: rgba(245, 164, 42, 0.1);
   position: relative;
   box-shadow: 0px 16px 24px rgba(0, 0, 0, 0.14), 0px 6px 30px rgba(0, 0, 0, 0.12), 0px 8px 10px rgba(0, 0, 0, 0.2);
   border-radius: 8px;
@@ -38,7 +38,7 @@ export const Circle = styled.div`
   width: 200px;
   height: 200px;
   border-radius: 50%;
-  background-color: white;
+  background-color: #fff;
   position: absolute;
 `;
 
