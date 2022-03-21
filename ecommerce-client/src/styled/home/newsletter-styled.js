@@ -1,7 +1,8 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-  height: 60vh;
+  height: 40vh;
+  margin-bottom: 10px;
   background-color: #fcf5f5;
   display: flex;
   flex-direction: column;
@@ -38,6 +39,10 @@ export const Input = styled.input`
 export const Button = styled.button`
   flex: 1;
   border: none;
-  background-color: teal;
+  background-color: #f5a42a;
   color: white;
+  cursor: pointer;
+  &:hover {
+    background-color: rgba(245, 164, 42, 0.7);
+  }
 `;
