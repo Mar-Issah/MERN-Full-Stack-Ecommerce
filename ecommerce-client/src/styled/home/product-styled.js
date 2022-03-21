@@ -26,6 +26,9 @@ export const Container = styled.div`
   justify-content: center;
   background-color: #f5fbfd;
   position: relative;
+  box-shadow: 0px 16px 24px rgba(0, 0, 0, 0.14), 0px 6px 30px rgba(0, 0, 0, 0.12), 0px 8px 10px rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+
   &:hover ${Info} {
     opacity: 1;
   }
