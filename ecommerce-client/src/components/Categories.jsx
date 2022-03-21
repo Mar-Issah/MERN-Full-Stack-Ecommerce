@@ -1,14 +1,21 @@
 import { categories } from '../data';
-import CategoryItem from './CategoryItem';
-import { Container } from '../styled/home/categories-styled';
+import { Wrapper, Container, Image, Title, Info, Button } from '../styled/home/categories-styled';
 
 const Categories = () => {
   return (
-    <Container>
+    <Wrapper>
       {categories.map((item) => (
-        <CategoryItem item={item} key={item.id} />
+        <Container key={item.id}>
+          <a href={`/products/${item.cat}`}>
+            <Image src={item.img} />
+            <Info>
+              <Title>{item.title}</Title>
+              <Button>SHOP NOW</Button>
+            </Info>
+          </a>
+        </Container>
       ))}
-    </Container>
+    </Wrapper>
   );
 };
 
