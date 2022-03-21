@@ -1,12 +1,12 @@
-import { Facebook, Instagram, MailOutline, Phone, Pinterest, Room, Twitter } from '@material-ui/icons';
+import { Facebook, Instagram, MailOutline, Phone, Pinterest, Room, Twitter } from '@mui/icons-material';
 import { Container, Left, Logo, Desc, SocialContainer, SocialIcon, Center, Title, List, ListItem, Right, ContactItem, Payment } from '../styled/home/footer-styled';
 
 const Footer = () => {
   return (
     <Container>
       <Left>
-        <Logo>LAMA.</Logo>
-        <Desc>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don’t look even slightly believable.</Desc>
+        <Logo>SIYA.</Logo>
+        <Desc>Be thankful for what you have; you'll end up having more. If you concentrate on what you don't have, you will never, ever have enough.</Desc>
         <SocialContainer>
           <SocialIcon color='3B5999'>
             <Facebook />
@@ -40,13 +40,13 @@ const Footer = () => {
       <Right>
         <Title>Contact</Title>
         <ContactItem>
-          <Room style={{ marginRight: '10px' }} /> 622 Dixie Path , South Tobinchester 98336
+          <Room style={{ marginRight: '10px' }} /> 123 Manderley Gardens , Christ Church
         </ContactItem>
         <ContactItem>
-          <Phone style={{ marginRight: '10px' }} /> +1 234 56 78
+          <Phone style={{ marginRight: '10px' }} /> +1 234 567 890
         </ContactItem>
         <ContactItem>
-          <MailOutline style={{ marginRight: '10px' }} /> contact@lama.dev
+          <MailOutline style={{ marginRight: '10px' }} /> mail@siya.dev
         </ContactItem>
         <Payment src='https://i.ibb.co/Qfvn4z6/payment.png' />
       </Right>

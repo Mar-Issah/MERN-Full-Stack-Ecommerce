@@ -2,6 +2,9 @@ import styled from 'styled-components';
 
 export const Container = styled.div`
   display: flex;
+  color: #fff;
+  background-color: #000;
+  margin-top: 40px;
 `;
 
 export const Left = styled.div`
@@ -11,7 +14,9 @@ export const Left = styled.div`
   padding: 20px;
 `;
 
-export const Logo = styled.h1``;
+export const Logo = styled.h1`
+  letter-spacing: 8px;
+`;
 
 export const Desc = styled.p`
   margin: 20px 0px;
