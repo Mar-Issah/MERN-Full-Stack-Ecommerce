@@ -2,7 +2,7 @@ import React from 'react';
 import { Container, Wrapper, Left, Center, Right, Language, SearchContainer, Input, Logo, MenuItem } from '../styled/home/navbar-styled';
 import { Search, ShoppingCartOutlined } from '@mui/icons-material';
 import { Badge } from '@mui/material';
-import { Link } from 'react-router-dom';
+
 
 const Navbar = () => {
   return (

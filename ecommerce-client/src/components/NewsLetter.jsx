@@ -1,12 +1,13 @@
-import { Send } from '@material-ui/icons';
+import { Send } from '@mui/icons-material';
 import { Container, Title, Desc, InputContainer, Input, Button } from '../styled/home/newsletter-styled';
+
 const Newsletter = () => {
   return (
     <Container>
       <Title>Newsletter</Title>
-      <Desc>Get timely updates from your favorite products.</Desc>
+      <Desc>Join the Newsletter and get them Free. Every Month!</Desc>
       <InputContainer>
-        <Input placeholder='Your email' />
+        <Input placeholder='Enter email' />
         <Button>
           <Send />
         </Button>
