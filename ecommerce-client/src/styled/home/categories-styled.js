@@ -17,6 +17,7 @@ export const Image = styled.img`
   width: 100%;
   height: 100%;
   object-fit: cover;
+  border-radius: 5px;
 `;
 
 export const Info = styled.div`
@@ -39,8 +40,12 @@ export const Title = styled.h1`
 export const Button = styled.button`
   border: none;
   padding: 10px;
-  background-color: white;
+  background-color: #f5a42a;
   color: gray;
   cursor: pointer;
   font-weight: 600;
+  border-radius: 50px;
+  &:hover {
+    background-color: rgba(245, 164, 42, 0.7);
+  }
 `;
