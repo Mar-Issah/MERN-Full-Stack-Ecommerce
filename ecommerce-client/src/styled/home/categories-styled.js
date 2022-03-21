@@ -33,7 +33,7 @@ export const Info = styled.div`
 `;
 
 export const Title = styled.h1`
-  color: white;
+  color: #fff;
   margin-bottom: 20px;
 `;
 
