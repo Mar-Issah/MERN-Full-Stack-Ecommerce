@@ -1,4 +1,4 @@
-//import Product from './pages/Product';
+import Product from './pages/Product';
 import Home from './pages/Home';
 import ProductList from './pages/ProductList';
 // import Register from './pages/Register';
@@ -15,6 +15,7 @@ const App = () => {
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path='/products' element={<ProductList />} />
+        <Route path='/product' element={<Product />} />
         {/* <Route exact path='/'>
           <Home />
         </Route> */}
