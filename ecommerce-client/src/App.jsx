@@ -1,6 +1,7 @@
 import Product from './pages/Product';
 import Home from './pages/Home';
 import Login from './pages/Login';
+import Register from './pages/Register';
 import ProductList from './pages/ProductList';
 // import Register from './pages/Register';
 // import Login from './pages/Login';
@@ -18,6 +19,7 @@ const App = () => {
         <Route path='/products' element={<ProductList />} />
         <Route path='/product' element={<Product />} />
         <Route path='/login' element={<Login />} />
+        <Route path='/register' element={<Register />} />
         {/* <Route exact path='/'>
           <Home />
         </Route> */}
