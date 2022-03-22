@@ -8,7 +8,26 @@ import { useEffect, useState } from 'react';
 // import { publicRequest } from '../requestMethods';
 // import { addProduct } from '../redux/cartRedux';
 // import { useDispatch } from 'react-redux';
-import { Container, Wrapper, ImgContainer, Image, InfoContainer, Title, Desc, Price, FilterContainer, Filter, FilterTitle, FilterColor, FilterSize, FilterSizeOption, AddContainer, AmountContainer, Amount, Button } from '../styled/products/product';
+import {
+  Container,
+  Wrapper,
+  ImgContainer,
+  Image,
+  InfoContainer,
+  Title,
+  Desc,
+  Price,
+  FilterContainer,
+  Filter,
+  FilterTitle,
+  FilterColor,
+  FilterSize,
+  FilterSizeOption,
+  AddContainer,
+  AmountContainer,
+  Amount,
+  Button,
+} from '../styled/products/product-styled';
 
 const Product = () => {
   const location = useLocation();

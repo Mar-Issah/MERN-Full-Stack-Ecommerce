@@ -1,5 +1,5 @@
 import { FavoriteBorderOutlined, SearchOutlined, ShoppingCartOutlined } from '@mui/icons-material';
-import { Container, Circle, Image, Info, Icon } from '../styled/home/product-styled';
+import { Container, Circle, Image, Info, Icon } from '../styled/home/productCard-styled';
 
 const Product = ({ item }) => {
   return (

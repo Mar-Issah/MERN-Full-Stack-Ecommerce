@@ -3,7 +3,7 @@ import styled from 'styled-components';
 export const Container = styled.div`
   width: 100vw;
   height: 100vh;
-  background: linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), url('https://images.pexels.com/photos/6984650/pexels-photo-6984650.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940') center;
+  background: linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), url('https://res.cloudinary.com/dytnpjxrd/image/upload/v1647992116/MERN%20Ecommerce/pexels-photo-934070_pkshhp.jpg') center;
   background-size: cover;
   display: flex;
   align-items: center;
@@ -14,6 +14,7 @@ export const Wrapper = styled.div`
   width: 25%;
   padding: 20px;
   background-color: white;
+  box-shadow: 0px 16px 24px rgba(0, 0, 0, 0.14), 0px 6px 30px rgba(0, 0, 0, 0.12), 0px 8px 10px rgba(0, 0, 0, 0.2);
 `;
 
 export const Title = styled.h1`
@@ -37,13 +38,16 @@ export const Button = styled.button`
   width: 40%;
   border: none;
   padding: 15px 20px;
-  background-color: teal;
+  background-color: #f5a42a;
   color: white;
   cursor: pointer;
   margin-bottom: 10px;
   &:disabled {
     color: green;
     cursor: not-allowed;
+  }
+  &:hover {
+    background-color: rgba(245, 164, 42, 0.7);
   }
 `;
 
