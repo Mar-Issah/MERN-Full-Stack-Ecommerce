@@ -7,7 +7,7 @@ import { useLocation } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 // import { publicRequest } from '../requestMethods';
 // import { addProduct } from '../redux/cartRedux';
-import { useDispatch } from 'react-redux';
+// import { useDispatch } from 'react-redux';
 import { Container, Wrapper, ImgContainer, Image, InfoContainer, Title, Desc, Price, FilterContainer, Filter, FilterTitle, FilterColor, FilterSize, FilterSizeOption, AddContainer, AmountContainer, Amount, Button } from '../styled/products/product';
 
 const Product = () => {
@@ -17,7 +17,7 @@ const Product = () => {
   const [quantity, setQuantity] = useState(1);
   const [color, setColor] = useState('');
   const [size, setSize] = useState('');
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
 
   // useEffect(() => {
   //   const getProduct = async () => {
@@ -42,16 +42,20 @@ const Product = () => {
   // };
   return (
     <Container>
-      <Navbar />
       <Notice />
+      <Navbar />
       <Wrapper>
         <ImgContainer>
-          <Image src={product.img} />
+          <Image src='https://res.cloudinary.com/dytnpjxrd/image/upload/v1647823611/MERN%20Ecommerce/summertime.jpg' />
+          {/* <Image src={product.img} /> */}
         </ImgContainer>
         <InfoContainer>
-          <Title>{product.title}</Title>
-          <Desc>{product.desc}</Desc>
-          <Price>$ {product.price}</Price>
+          {/* <Title>{product.title}</Title> */}
+          <Title>Title</Title>
+          {/* <Desc>{product.desc}</Desc> */}
+          <Desc>Description</Desc>
+          {/* <Price>$ {product.price}</Price> */}
+          <Price>$ 50.00</Price>
           <FilterContainer>
             <Filter>
               <FilterTitle>Color</FilterTitle>

@@ -85,7 +85,7 @@ export const Amount = styled.span`
   width: 30px;
   height: 30px;
   border-radius: 10px;
-  border: 1px solid teal;
+  border: 2px solid #f5a42a;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -94,11 +94,12 @@ export const Amount = styled.span`
 
 export const Button = styled.button`
   padding: 15px;
-  border: 2px solid teal;
-  background-color: white;
+  border: none;
+  background-color: #f5a42a;
   cursor: pointer;
+  border-radius: 7px;
   font-weight: 500;
   &:hover {
-    background-color: #f8f4f4;
+    background-color: rgba(245, 164, 42, 0.7);
   }
 `;
