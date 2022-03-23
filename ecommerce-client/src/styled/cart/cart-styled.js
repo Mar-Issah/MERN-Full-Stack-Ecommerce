@@ -134,7 +134,10 @@ export const SummaryItemPrice = styled.span``;
 export const Button = styled.button`
   width: 100%;
   padding: 10px;
-  background-color: black;
+  background-color: #f5a42a;
   color: white;
   font-weight: 600;
+  &:hover {
+    background-color: rgba(245, 164, 42, 0.7);
+  }
 `;

@@ -1,14 +1,12 @@
-import { Add, Remove } from '@material-ui/icons';
-import { useSelector } from 'react-redux';
-import styled from 'styled-components';
+import { Add, Remove } from '@mui/icons-material';
+// import { useSelector } from 'react-redux';
 import Notice from '../components/Notice';
 import Footer from '../components/Footer';
 import Navbar from '../components/Navbar';
-import { mobile } from '../responsive';
 import StripeCheckout from 'react-stripe-checkout';
 import { useEffect, useState } from 'react';
 // import { userRequest } from '../requestMethods';
-import { useHistory } from 'react-router';
+// import { useHistory } from 'react-router';
 import {
   Container,
   Wrapper,
@@ -43,9 +41,9 @@ import {
 // const KEY = process.env.REACT_APP_STRIPE;
 
 const Cart = () => {
-  const cart = useSelector((state) => state.cart);
+  // const cart = useSelector((state) => state.cart);
   const [stripeToken, setStripeToken] = useState(null);
-  const history = useHistory();
+  // const history = useHistory();
 
   const onToken = (token) => {
     setStripeToken(token);
@@ -83,7 +81,7 @@ const Cart = () => {
         </Top>
         <Bottom>
           <Info>
-            {cart.products.map((product) => (
+            {/* {cart.products.map((product) => (
               <Product>
                 <ProductDetail>
                   <Image src={product.img} />
@@ -109,14 +107,17 @@ const Cart = () => {
                   <ProductPrice>$ {product.price * product.quantity}</ProductPrice>
                 </PriceDetail>
               </Product>
-            ))}
+            ))} */}
             <Hr />
           </Info>
           <Summary>
             <SummaryTitle>ORDER SUMMARY</SummaryTitle>
             <SummaryItem>
               <SummaryItemText>Subtotal</SummaryItemText>
-              <SummaryItemPrice>$ {cart.total}</SummaryItemPrice>
+              <SummaryItemPrice>
+                ${/* {cart.total} */}
+                10
+              </SummaryItemPrice>
             </SummaryItem>
             <SummaryItem>
               <SummaryItemText>Estimated Shipping</SummaryItemText>
@@ -128,7 +129,10 @@ const Cart = () => {
             </SummaryItem>
             <SummaryItem type='total'>
               <SummaryItemText>Total</SummaryItemText>
-              <SummaryItemPrice>$ {cart.total}</SummaryItemPrice>
+              <SummaryItemPrice>
+                $ 50
+                {/* {cart.total} */}
+              </SummaryItemPrice>
             </SummaryItem>
             {/* <StripeCheckout name='Lama Shop' image='https://avatars.githubusercontent.com/u/1486366?v=4' billingAddress shippingAddress description={`Your total is $${cart.total}`} amount={cart.total * 100} token={onToken} stripeKey={KEY}>
               <Button>CHECKOUT NOW</Button>
