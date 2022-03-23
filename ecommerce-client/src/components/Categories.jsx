@@ -3,9 +3,9 @@ import { Wrapper, Container, Image, Title, Info, Button } from '../styled/home/c
 
 const Categories = () => {
   return (
-    <Wrapper>
+    <Container>
       {categories.map((item) => (
-        <Container key={item.id}>
+        <Wrapper key={item.id}>
           <a href={`/products/${item.cat}`}>
             <Image src={item.img} />
             <Info>
@@ -13,9 +13,9 @@ const Categories = () => {
               <Button>SHOP NOW</Button>
             </Info>
           </a>
-        </Container>
+        </Wrapper>
       ))}
-    </Wrapper>
+    </Container>
   );
 };
 

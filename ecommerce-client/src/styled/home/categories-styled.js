@@ -1,12 +1,14 @@
 import styled from 'styled-components';
+import { mobile } from '../../responsive';
 
-export const Wrapper = styled.div`
+export const Container = styled.div`
   display: flex;
   padding: 20px;
   justify-content: space-between;
+  ${mobile({ padding: '0px', flexDirection: 'column' })}
 `;
 
-export const Container = styled.div`
+export const Wrapper = styled.div`
   flex: 1;
   margin: 3px;
   height: 70vh;
@@ -18,6 +20,7 @@ export const Image = styled.img`
   height: 100%;
   object-fit: cover;
   border-radius: 5px;
+  ${mobile({ height: '30vh' })}
 `;
 
 export const Info = styled.div`
