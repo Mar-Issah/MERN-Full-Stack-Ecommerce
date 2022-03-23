@@ -23,8 +23,11 @@ export const TopButton = styled.button`
   font-weight: 600;
   cursor: pointer;
   border: ${(props) => props.type === 'filled' && 'none'};
-  background-color: ${(props) => (props.type === 'filled' ? 'black' : 'transparent')};
-  color: ${(props) => props.type === 'filled' && 'white'};
+  background-color: ${(props) => (props.type === 'filled' ? 'black' : '#f5a42a')};
+  color: #fff;
+  &:hover {
+    background-color: ${(props) => (props.type === 'filled' ? 'rgba(0,0,0,0.8)' : 'rgba(245, 164, 42, 0.7)')};
+  }
 `;
 
 export const TopTexts = styled.div``;
