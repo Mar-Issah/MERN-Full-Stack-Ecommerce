@@ -8,6 +8,7 @@ export const Container = styled.div`
   position: relative;
   overflow: hidden;
   background-color: #c7c3c3;
+  ${mobile({ display: 'none' })}
 `;
 
 export const Arrow = styled.div`

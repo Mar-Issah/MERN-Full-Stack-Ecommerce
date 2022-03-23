@@ -41,7 +41,7 @@ export const Input = styled.input`
 export const Logo = styled.h3`
   font-weight: bold;
   letter-spacing: 8px;
-  ${mobile({ fontSize: '24px' })}
+  ${mobile({ fontSize: '24px', paddingLeft: '20px' })}
 `;
 
 export const Center = styled.div`
