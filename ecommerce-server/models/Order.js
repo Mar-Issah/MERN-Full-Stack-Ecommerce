@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 
 const OrderSchema = new mongoose.Schema(
+  //products is an array of productd and quantity. the type and default is not an object it only defines/describe the productid and quantity
   {
     userId: { type: String, required: true },
     products: [
