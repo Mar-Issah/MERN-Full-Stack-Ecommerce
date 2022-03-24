@@ -5,7 +5,7 @@ const port = process.env.PORT;
 const mongoose = require('mongoose');
 
 app.get('/', (req, res) => {
-  res.send('Hello World!');
+  res.json({ msg: 'Hello World!' });
 });
 
 const uri = process.env.MONGO_URI;
