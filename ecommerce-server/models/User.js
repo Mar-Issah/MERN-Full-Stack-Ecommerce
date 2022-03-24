@@ -1,12 +1,21 @@
 const mongoose = require('mongoose');
-const Schema = mongoose.Schema;
 
-const userSchema = new Schema({
-  name: { type: String, required: true },
-  age: Number,
-  favoriteFoods: [String],
-});
+const UserSchema = new mongoose.Schema(
+  {
+    username: { type: String, required: true, unique: true },
+    email: { type: String, required: true, unique: true },
+    password: { type: String, required: true },
+    isAdmin: {
+      type: Boolean,
+      default: false,
+    },
+    img: { type: String },
+  },
 
-const User = mongoose.model('User', userSchema);
+  //below will create createdAt and updatedAt time
+  { timestamps: true }
+);
+
+const User = mongoose.model('User', UserSchema);
 
 module.exports = Person;
