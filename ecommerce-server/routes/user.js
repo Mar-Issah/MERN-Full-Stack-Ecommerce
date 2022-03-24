@@ -1,5 +1,7 @@
 const router = require('express').Router();
+const User = require('../models/User');
 
+//create all CRUD route relating to the user
 router.get('/', (req, res) => {
   res.json({ name: 'Marsiya' });
 });
