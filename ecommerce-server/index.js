@@ -4,6 +4,7 @@ require('dotenv').config();
 const mongoose = require('mongoose');
 const userRoute = require('./routes/user');
 
+app.use(express.json());
 app.use('/api/users', userRoute);
 
 const uri = process.env.MONGO_URI;
