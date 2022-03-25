@@ -7,6 +7,7 @@ const jwt = require('jsonwebtoken');
 
 //you can also use express-validator  (middleware) to validate the fileds like check if password length is...
 
+//the secret key is needed because in order to decypt it we need the secret key
 //AES: Advanced Encryption Standard
 router.post('/', async (req, res) => {
   const newUser = new User({
@@ -16,7 +17,6 @@ router.post('/', async (req, res) => {
     email: req.body.email,
     password: CryptoJS.AES.encrypt(req.body.password, process.env.PASS_SECRET).toString(),
   });
-  res.json({ newUser });
 
   //wrap around with try/catch block
   //
@@ -28,8 +28,4 @@ router.post('/', async (req, res) => {
   }
 });
 
-router.post('/postme', (req, res) => {
-  const name = req.body.firstname;
-  res.json({ name });
-});
 module.exports = router;
