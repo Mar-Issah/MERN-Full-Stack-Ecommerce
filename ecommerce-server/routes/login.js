@@ -36,6 +36,7 @@ router.post('/', async (req, res) => {
     //user._doc because mongo db stores othe unnecessary fields
     const { password, ...others } = user._doc;
 
+    //you usually will only send the accesstoken which contain the id and isAdmin fields
     res.status(200).json({ ...others, accessToken });
   } catch (error) {
     res.status(500).json(error);
