@@ -36,7 +36,7 @@ router.post('/', async (req, res) => {
     //user._doc because mongo db stores othe unnecessary fields
     const { password, ...others } = user._doc;
 
-    //you usually will only send the accesstoken which contain the id and isAdmin fields
+    //you usually will only send the accesstoken which contains the id and isAdmin fields to the client and when the react client recives it will store it in the headers to be send back to the server for authorization
     res.status(200).json({ ...others, accessToken });
   } catch (error) {
     res.status(500).json(error);
