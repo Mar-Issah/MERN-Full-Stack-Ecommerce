@@ -1,6 +1,7 @@
 const router = require('express').Router();
 const User = require('../models/User');
 const { verifyToken, verifyTokenAndAuthorization } = require('./verifyTokenMiddleware');
+const CryptoJS = require('crypto-js');
 
 //create all CRUD route relating to the user
 
@@ -10,13 +11,16 @@ const { verifyToken, verifyTokenAndAuthorization } = require('./verifyTokenMiddl
 
 //we may have to perform this check multiple times in other routes so create a verifyTokenAndAuthorization
 
+//$set set whtever changes you have in the db to whatever on the body
+
 //UPDATE USER
-router.put('/:id', verifyTokenAndAuthorization, (req, res) => {
-  //after token verification
+router.put('/:id', verifyTokenAndAuthorization, async (req, res) => {
+  //after token verification if there is a new password then encrypt it
   if (req.body.password) {
     req.body.password = CryptoJS.AES.encrypt(req.body.password, process.env.PASS_SEC).toString();
   }
 
+  //in other to craete something and send to the user  { new: true }
   try {
     const updatedUser = await User.findByIdAndUpdate(
       req.params.id,
@@ -26,6 +30,7 @@ router.put('/:id', verifyTokenAndAuthorization, (req, res) => {
       { new: true }
     );
     res.status(200).json(updatedUser);
+    console.log(updatedUser);
   } catch (err) {
     res.status(500).json(err);
   }
