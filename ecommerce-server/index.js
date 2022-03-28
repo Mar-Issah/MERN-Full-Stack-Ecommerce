@@ -2,7 +2,7 @@ const express = require('express');
 const app = express();
 require('dotenv').config();
 const mongoose = require('mongoose');
-//const userRoute = require('./routes/user');
+const userRoute = require('./routes/user');
 const registerRoute = require('./routes/register');
 const loginRoute = require('./routes/login');
 // const productRoute = require('./routes/product');
@@ -14,7 +14,7 @@ app.use(express.json());
 
 app.use('/api/register', registerRoute);
 app.use('/api/login', loginRoute);
-// app.use('/api/users', userRoute);
+app.use('/api/users', userRoute);
 // app.use('/api/products', productRoute);
 // app.use('/api/carts', cartRoute);
 // app.use('/api/orders', orderRoute);
