@@ -18,6 +18,7 @@ const verifyToken = (req, res, next) => {
 };
 
 //below will be used as the middlewar
+//for user who is has an account or an admin
 const verifyTokenAndAuthorization = (req, res, next) => {
   verifyToken(req, res, () => {
     if (req.user.id === req.params.id || req.user.isAdmin) {
@@ -28,7 +29,21 @@ const verifyTokenAndAuthorization = (req, res, next) => {
   });
 };
 
+//for the login user who is an admin specifically not just an account owner/member/
+
+//admin are able to add new product
+const verifyTokenAndAdmin = (req, res, next) => {
+  verifyToken(req, res, () => {
+    if (req.user.isAdmin) {
+      next();
+    } else {
+      res.status(403).json('You are not alowed to do that!');
+    }
+  });
+};
+
 module.exports = {
   verifyToken,
   verifyTokenAndAuthorization,
+  verifyTokenAndAdmin,
 };
