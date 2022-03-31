@@ -1,7 +1,8 @@
 const router = require('express').Router();
 const User = require('../models/User');
-const { verifyToken, verifyTokenAndAuthorization } = require('./verifyTokenMiddleware');
+const { verifyTokenAndAdmin, verifyTokenAndAuthorization } = require('./verifyTokenMiddleware');
 const CryptoJS = require('crypto-js');
+const mongoose = require('mongoose');
 
 //create all CRUD route relating to the user
 
@@ -46,4 +47,21 @@ router.delete('/:id', verifyTokenAndAuthorization, async (req, res) => {
   }
 });
 
+//GET USER
+router.get('/find/:id', verifyTokenAndAdmin, async (req, res) => {
+  try {
+    const id = req.params.id;
+    if (!mongoose.Types.ObjectId.isValid(id)) return false;
+    console.log(id);
+    //console.log(req.params.id);
+    const user = await User.findById(id);
+    // res.json(req.params.id);
+    const { ...others } = user;
+    // const { password, ...others } = user._doc;
+
+    // res.status(200).json(others);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
 module.exports = router;
