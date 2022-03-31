@@ -52,7 +52,7 @@ router.get('/find/:id', verifyTokenAndAdmin, async (req, res) => {
   try {
     const id = req.params.id;
     if (!mongoose.Types.ObjectId.isValid(id)) return false;
-    console.log(id);
+    //console.log(id);
     //console.log(req.params.id);
     const user = await User.findById(id);
     // res.json(req.params.id);
