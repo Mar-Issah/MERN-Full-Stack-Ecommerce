@@ -62,17 +62,17 @@ router.get('/search/:id', verifyTokenAndAdmin, (req, res) => {
 });
 
 //GET ALL USER
-router.get('/:id', async (req, res) => {
-  //verifyTokenAndAdmin
-  //const query = req.query.new;
-  // try {
-  //   const users = query
-  //     ? await User.find().sort({ _id: -1 }).limit(5)
-  //     : await User.find();
-  //   res.status(200).json(users);
-  // } catch (err) {
-  //   res.status(500).json(err);
-  // }
+//we can use quety params to filter our search. so if there is no query paramsn on the url return all users
+//http://localhost:5000/api/users/?new=true first sort by id and limit array to 5 users
+router.get('/', async (req, res) => {
+  const query = req.query.new;
+  try {
+    const users = query ? await User.find().sort({ _id: -1 }).limit(5) : await User.find();
+
+    res.status(200).json(users);
+  } catch (err) {
+    res.status(500).json(err);
+  }
 });
 
 module.exports = router;
