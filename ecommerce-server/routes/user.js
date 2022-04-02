@@ -3,6 +3,7 @@ const User = require('../models/User');
 const { verifyTokenAndAdmin, verifyTokenAndAuthorization } = require('./verifyTokenMiddleware');
 const CryptoJS = require('crypto-js');
 const mongoose = require('mongoose');
+const ObjectId = mongoose.Types.ObjectId;
 
 //create all CRUD route relating to the user
 
@@ -48,20 +49,38 @@ router.delete('/:id', verifyTokenAndAuthorization, async (req, res) => {
 });
 
 //GET USER
-router.get('/find/:id', verifyTokenAndAdmin, async (req, res) => {
-  try {
-    const id = req.params.id;
-    if (!mongoose.Types.ObjectId.isValid(id)) return false;
-    //console.log(id);
-    //console.log(req.params.id);
-    const user = await User.findById(id);
-    // res.json(req.params.id);
-    const { ...others } = user;
-    // const { password, ...others } = user._doc;
-
-    // res.status(200).json(others);
-  } catch (err) {
-    res.status(500).json(err);
-  }
+router.get('/search/:id', verifyTokenAndAdmin, (req, res) => {
+  User.findById({ _id: new ObjectId(req.params.id) }, (err, data) => {
+    if (err) {
+      res.status(500).json(err);
+    } else {
+      const { password, ...others } = data._doc;
+      // console.log(others);
+      res.status(200).json(others);
+    }
+  });
 });
+
+//GET ALL USER
+router.get('/:id', async (req, res) => {
+  //verifyTokenAndAdmin
+  //const query = req.query.new;
+  // try {
+  //   const users = query
+  //     ? await User.find().sort({ _id: -1 }).limit(5)
+  //     : await User.find();
+  //   res.status(200).json(users);
+  // } catch (err) {
+  //   res.status(500).json(err);
+  // }
+  User.find({ _id: new ObjectId(req.params.id) }, function (err, docs) {
+    if (err) {
+      console.log(err);
+    } else {
+      console.log('Second function call : ', docs);
+      res.status(200).json(docs);
+    }
+  });
+});
+
 module.exports = router;
