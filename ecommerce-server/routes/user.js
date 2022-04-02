@@ -73,14 +73,6 @@ router.get('/:id', async (req, res) => {
   // } catch (err) {
   //   res.status(500).json(err);
   // }
-  User.find({ _id: new ObjectId(req.params.id) }, function (err, docs) {
-    if (err) {
-      console.log(err);
-    } else {
-      console.log('Second function call : ', docs);
-      res.status(200).json(docs);
-    }
-  });
 });
 
 module.exports = router;
