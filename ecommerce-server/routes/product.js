@@ -55,6 +55,10 @@ router.get('/find/:id', async (req, res) => {
 
 //GET ALL PRODUCTS
 //we dont need middleware anybody can view product
+//using query params http://localhost:5000/api/products/?new=true
+//using query params http://localhost:5000/api/products/?category=kids
+//if new, then sort fxn which will sort using createdAT,and take the first one
+//if category is assigned, use value to search and return item in category
 router.get('/', async (req, res) => {
   const qNew = req.query.new;
   const qCategory = req.query.category;
