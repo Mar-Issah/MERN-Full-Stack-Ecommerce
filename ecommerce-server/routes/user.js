@@ -64,7 +64,7 @@ router.get('/search/:id', verifyTokenAndAdmin, (req, res) => {
 //GET ALL USER
 //we can use quety params to filter our search. so if there is no query paramsn on the url return all users
 //http://localhost:5000/api/users/?new=true first sort by id and limit array to 5 users
-router.get('/', async (req, res) => {
+router.get('/', verifyTokenAndAdmin, async (req, res) => {
   const query = req.query.new;
   try {
     const users = query ? await User.find().sort({ _id: -1 }).limit(5) : await User.find();
@@ -75,4 +75,32 @@ router.get('/', async (req, res) => {
   }
 });
 
+//Stats if you  want to return user in a given period/ month
+//use the aggregate which accepts an array of conditons. first get the last year dateand then get/find all document createdAt last year
+//$project creates a new field/column in the document called month wwhich is the month retrieved from the createdAt date
+//$group (like JS reduce), returns id which is a no. represnetation of the month and also sum of all the users create in the monthh
+router.get('/stats', verifyTokenAndAdmin, async (req, res) => {
+  const date = new Date();
+  const lastYear = new Date(date.setFullYear(date.getFullYear() - 1));
+
+  try {
+    const data = await User.aggregate([
+      { $match: { createdAt: { $gte: lastYear } } },
+      {
+        $project: {
+          month: { $month: '$createdAt' },
+        },
+      },
+      {
+        $group: {
+          _id: '$month',
+          total: { $sum: 1 },
+        },
+      },
+    ]);
+    res.status(200).json(data);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
 module.exports = router;
