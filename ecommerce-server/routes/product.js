@@ -4,8 +4,16 @@ const { verifyToken, verifyTokenAndAuthorization, verifyTokenAndAdmin } = requir
 const router = require('express').Router();
 
 //CREATE
+//only an admin can create a product
+router.post('/create', verifyTokenAndAdmin, async (req, res) => {
+  const newProduct = new Product(req.body);
 
-router.get('/', async (req, res) => {
-  res.status(200).json({ product: 'product' });
+  try {
+    const savedProduct = await newProduct.save();
+    res.status(200).json(savedProduct);
+  } catch (err) {
+    res.status(500).json(err);
+  }
 });
+
 module.exports = router;
