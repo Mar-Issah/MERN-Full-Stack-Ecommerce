@@ -53,14 +53,16 @@ router.delete('/:id', verifyTokenAndAuthorization, async (req, res) => {
 });
 
 //GET USER CART
-// router.get("/find/:userId", verifyTokenAndAuthorization, async (req, res) => {
-//   try {
-//     const cart = await Cart.findOne({ userId: req.params.userId });
-//     res.status(200).json(cart);
-//   } catch (err) {
-//     res.status(500).json(err);
-//   }
-// });
+//only an admin or user can find their cart
+//we are finding the cart by userid not cart id. return first found
+router.get('/find/:userId', verifyTokenAndAuthorization, async (req, res) => {
+  try {
+    const cart = await Cart.findOne({ userId: req.params.userId });
+    res.status(200).json(cart);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
 
 // //GET ALL
 
