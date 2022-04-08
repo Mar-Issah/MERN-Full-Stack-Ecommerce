@@ -14,7 +14,7 @@ const router = require('express').Router();
 //         }
 //     ]
 // }
-router.post('/', async (req, res) => {
+router.post('/', verifyToken, async (req, res) => {
   const newCart = new Cart(req.body);
   try {
     const savedCart = await newCart.save();
