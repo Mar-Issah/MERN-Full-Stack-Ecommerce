@@ -5,6 +5,15 @@ const router = require('express').Router();
 
 //CREATE
 //any user can create a cart so no middleware
+// {
+//     "userId": 3,
+//     "products": [
+//         {
+//             "productId": 4,
+//             "quantity": 4
+//         }
+//     ]
+// }
 router.post('/', async (req, res) => {
   const newCart = new Cart(req.body);
   try {
@@ -16,20 +25,21 @@ router.post('/', async (req, res) => {
 });
 
 //UPDATE
-// router.put("/:id", verifyTokenAndAuthorization, async (req, res) => {
-//   try {
-//     const updatedCart = await Cart.findByIdAndUpdate(
-//       req.params.id,
-//       {
-//         $set: req.body,
-//       },
-//       { new: true }
-//     );
-//     res.status(200).json(updatedCart);
-//   } catch (err) {
-//     res.status(500).json(err);
-//   }
-// });
+//you can update a cart if you are the user /admin
+router.put('/:id', verifyTokenAndAuthorization, async (req, res) => {
+  try {
+    const updatedCart = await Cart.findByIdAndUpdate(
+      req.params.id,
+      {
+        $set: req.body,
+      },
+      { new: true }
+    );
+    res.status(200).json(updatedCart);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
 
 //DELETE
 // router.delete("/:id", verifyTokenAndAuthorization, async (req, res) => {
