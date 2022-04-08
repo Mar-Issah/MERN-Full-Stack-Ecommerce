@@ -4,6 +4,7 @@ const { verifyToken, verifyTokenAndAuthorization, verifyTokenAndAdmin } = requir
 const router = require('express').Router();
 
 //CREATE
+//any user can create order
 router.post('/', verifyToken, async (req, res) => {
   const newOrder = new Order(req.body);
 
@@ -16,6 +17,7 @@ router.post('/', verifyToken, async (req, res) => {
 });
 
 //UPDATE
+//only admin can update
 router.put('/:id', verifyTokenAndAdmin, async (req, res) => {
   try {
     const updatedOrder = await Order.findByIdAndUpdate(
@@ -32,6 +34,7 @@ router.put('/:id', verifyTokenAndAdmin, async (req, res) => {
 });
 
 //DELETE
+//only admin can delete
 router.delete('/:id', verifyTokenAndAdmin, async (req, res) => {
   try {
     await Order.findByIdAndDelete(req.params.id);
@@ -42,6 +45,7 @@ router.delete('/:id', verifyTokenAndAdmin, async (req, res) => {
 });
 
 //GET USER ORDERS
+//order user and admin can get the order
 //find by userid not order id
 router.get('/find/:userId', verifyTokenAndAuthorization, async (req, res) => {
   try {
@@ -53,15 +57,15 @@ router.get('/find/:userId', verifyTokenAndAuthorization, async (req, res) => {
 });
 
 // //GET ALL
-
-// router.get('/', verifyTokenAndAdmin, async (req, res) => {
-//   try {
-//     const orders = await Order.find();
-//     res.status(200).json(orders);
-//   } catch (err) {
-//     res.status(500).json(err);
-//   }
-// });
+//admn can get all orders
+router.get('/', verifyTokenAndAdmin, async (req, res) => {
+  try {
+    const orders = await Order.find();
+    res.status(200).json(orders);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
 
 // GET MONTHLY INCOME
 
