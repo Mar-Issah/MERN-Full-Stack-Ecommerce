@@ -1,7 +1,6 @@
 const router = require('express').Router();
 const User = require('../models/User');
 const CryptoJS = require('crypto-js');
-const jwt = require('jsonwebtoken');
 
 //create all CRUD route relating to user registration. we are only posting
 

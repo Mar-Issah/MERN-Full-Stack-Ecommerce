@@ -69,13 +69,7 @@ router.get('/', verifyTokenAndAdmin, async (req, res) => {
 
 // GET MONTHLY INCOME
 //income if you  want to return income made from orders in a given period/ month
-//make sure the prodeuct id matches that from the query $elematch
-//use the aggregate which accepts an array of conditons. first get the last month and the month before
-//we are comparing incomes of those months
-//$match (like js find) and return createdAt greater than the last 2months (jus returning last 2months orders)
-//$project creates a new field/column in the document called month wwhich is the month retrieved from the createdAt date and another column sales which is the Order amount
-//$group (like JS reduce), returns id which is a no. represnetation of the month and also sum of all the sales create in the monthh
-
+//got to notepad
 router.get('/income', verifyTokenAndAdmin, async (req, res) => {
   const productId = req.query.pid;
   const date = new Date();

@@ -76,9 +76,7 @@ router.get('/', verifyTokenAndAdmin, async (req, res) => {
 });
 
 //Stats if you  want to return user in a given period/ month
-//use the aggregate which accepts an array of conditons. first get the last year date and then get/find all document createdAt last year
-//$project creates a new field/column in the document called month wwhich is the month retrieved from the createdAt date
-//$group (like JS reduce), returns id which is a no. represnetation of the month and also sum of all the users create in the monthh
+//go to notespad
 router.get('/stats', verifyTokenAndAdmin, async (req, res) => {
   const date = new Date();
   const lastYear = new Date(date.setFullYear(date.getFullYear() - 1));
