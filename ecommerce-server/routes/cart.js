@@ -42,14 +42,15 @@ router.put('/:id', verifyTokenAndAuthorization, async (req, res) => {
 });
 
 //DELETE
-// router.delete("/:id", verifyTokenAndAuthorization, async (req, res) => {
-//   try {
-//     await Cart.findByIdAndDelete(req.params.id);
-//     res.status(200).json("Cart has been deleted...");
-//   } catch (err) {
-//     res.status(500).json(err);
-//   }
-// });
+//only an user /admin can delete a cart
+router.delete('/:id', verifyTokenAndAuthorization, async (req, res) => {
+  try {
+    await Cart.findByIdAndDelete(req.params.id);
+    res.status(200).json('Cart has been deleted...');
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
 
 //GET USER CART
 // router.get("/find/:userId", verifyTokenAndAuthorization, async (req, res) => {
