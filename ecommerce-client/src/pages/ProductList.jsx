@@ -7,11 +7,19 @@ import Footer from '../components/Footer';
 import Products from '../components/Products';
 import Newsletter from '../components/Newsletter';
 
+//products component render all of the products to tell it waht product to render pass in cat/sort/filter as props
+
+//this fxn set filters for color and size pass in the name(e. target.name)attribute in jsx to tell the function which of the filters to set
+
+//filters{color:red, size:md}
+
 const ProductList = () => {
-  const location = useLocation();
+  const location = useLocation(); //useParams
   const cat = location.pathname.split('/')[2];
   const [filters, setFilters] = useState({});
   const [sort, setSort] = useState('newest');
+
+  console.log(filters);
 
   const handleFilters = (e) => {
     const value = e.target.value;
@@ -25,8 +33,7 @@ const ProductList = () => {
     <Container>
       <Notice />
       <Navbar />
-      <Title>Dresses</Title>
-      {/* <Title>{cat}</Title> */}
+      <Title>{cat}</Title>
       <FilterContainer>
         <Filter>
           <FilterText>Filter Products:</FilterText>
