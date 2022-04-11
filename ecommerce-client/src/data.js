@@ -27,7 +27,7 @@ export const categories = [
     id: 1,
     img: 'https://res.cloudinary.com/dytnpjxrd/image/upload/v1647823611/MERN%20Ecommerce/summertime.jpg',
     title: 'DRESS STYLE!',
-    cat: 'women',
+    cat: 'jeans',
   },
   {
     id: 2,
@@ -39,7 +39,7 @@ export const categories = [
     id: 3,
     img: 'https://res.cloudinary.com/dytnpjxrd/image/upload/v1647823568/MERN%20Ecommerce/jackets.jpg',
     title: 'HEAVY JACKETS',
-    cat: 'jeans',
+    cat: 'jackets',
   },
 ];
 

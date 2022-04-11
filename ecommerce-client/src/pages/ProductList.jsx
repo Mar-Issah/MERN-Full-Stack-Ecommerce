@@ -1,4 +1,4 @@
-import { useLocation } from 'react-router';
+import { useLocation } from 'react-router-dom';
 import { useState } from 'react';
 import { Container, Title, FilterContainer, Filter, FilterText, Option, Select } from '../styled/products/productList-styled';
 import Navbar from '../components/Navbar';
