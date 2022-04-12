@@ -1,4 +1,4 @@
-import Product from './pages/Product';
+import ProductDetail from './pages/ProductDetail';
 import Home from './pages/Home';
 import Login from './pages/Login';
 import Cart from './pages/Cart';
@@ -27,7 +27,7 @@ const App = () => {
           <ProductList />
         </Route>
         <Route path='/product/:id'>
-          <Product />
+          <ProductDetail />
         </Route>
         <Route path='/cart'>
           <Cart />

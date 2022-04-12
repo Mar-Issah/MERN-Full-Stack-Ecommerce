@@ -1,7 +1,7 @@
 import { FavoriteBorderOutlined, SearchOutlined, ShoppingCartOutlined } from '@mui/icons-material';
 import { Container, Circle, Image, Info, Icon } from '../styled/home/productCard-styled';
 
-const Product = ({ item }) => {
+const ProductCard = ({ item }) => {
   return (
     <Container>
       <Circle />
@@ -23,4 +23,4 @@ const Product = ({ item }) => {
   );
 };
 
-export default Product;
+export default ProductCard;

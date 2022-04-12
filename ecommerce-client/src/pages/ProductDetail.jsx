@@ -29,7 +29,7 @@ import {
   Button,
 } from '../styled/products/product-styled';
 
-const Product = () => {
+const ProductDetail = () => {
   const location = useLocation();
   const id = location.pathname.split('/')[2];
   const [product, setProduct] = useState({});
@@ -108,4 +108,4 @@ const Product = () => {
   );
 };
 
-export default Product;
+export default ProductDetail;

@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import { popularProducts } from '../data';
-import Product from './Product';
+import ProductCard from './ProductCard';
 import axios from 'axios';
 
 const Container = styled.div`
@@ -54,15 +54,7 @@ const Products = ({ cat, filters, sort }) => {
   }, [sort]);
 
   //this way the homapge without filter can display products()first 8
-  return <Container>{cat ? filteredProducts.map((item) => <Product item={item} key={item.id} />) : products.slice(0, 8).map((item) => <Product item={item} key={item.id} />)}</Container>;
-
-  // return (
-  //   <Container>
-  //     {popularProducts.map((item) => (
-  //       <Product item={item} key={item.id} />
-  //     ))}
-  //   </Container>
-  // );
+  return <Container>{cat ? filteredProducts.map((item) => <ProductCard item={item} key={item.id} />) : products.slice(0, 8).map((item) => <ProductCard item={item} key={item.id} />)}</Container>;
 };
 
 export default Products;
