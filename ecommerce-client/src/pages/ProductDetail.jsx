@@ -5,7 +5,7 @@ import Navbar from '../components/Navbar';
 import Newsletter from '../components/Newsletter';
 import { useLocation } from 'react-router-dom';
 import { useEffect, useState } from 'react';
-// import { publicRequest } from '../requestMethods';
+import { publicRequest } from '../axiosInstance';
 // import { addProduct } from '../redux/cartRedux';
 // import { useDispatch } from 'react-redux';
 import {
@@ -38,15 +38,17 @@ const ProductDetail = () => {
   const [size, setSize] = useState('');
   // const dispatch = useDispatch();
 
-  // useEffect(() => {
-  //   const getProduct = async () => {
-  //     try {
-  //       const res = await publicRequest.get('/products/find/' + id);
-  //       setProduct(res.data);
-  //     } catch {}
-  //   };
-  //   getProduct();
-  // }, [id]);
+  //findById route
+  //publicRequest is an axios instance
+  useEffect(() => {
+    const getProduct = async () => {
+      try {
+        const res = await publicRequest.get('/products/find/' + id);
+        setProduct(res.data);
+      } catch {}
+    };
+    getProduct();
+  }, [id]);
 
   const handleQuantity = (type) => {
     if (type === 'dec') {
