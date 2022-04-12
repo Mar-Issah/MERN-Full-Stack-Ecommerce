@@ -27,19 +27,19 @@ export const categories = [
     id: 1,
     img: 'https://res.cloudinary.com/dytnpjxrd/image/upload/v1647823611/MERN%20Ecommerce/summertime.jpg',
     title: 'DRESS STYLE!',
-    cat: 'jeans',
+    cat: 'Dresses',
   },
   {
     id: 2,
     img: 'https://res.cloudinary.com/dytnpjxrd/image/upload/v1647823847/MERN%20Ecommerce/swimsuit.jpg',
     title: 'BEACH LOVERS',
-    cat: 'coat',
+    cat: 'Swim suits',
   },
   {
     id: 3,
     img: 'https://res.cloudinary.com/dytnpjxrd/image/upload/v1647823568/MERN%20Ecommerce/jackets.jpg',
     title: 'HEAVY JACKETS',
-    cat: 'jackets',
+    cat: 'Jackets',
   },
 ];
 

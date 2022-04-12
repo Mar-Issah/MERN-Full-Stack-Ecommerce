@@ -9,7 +9,7 @@ const Categories = () => {
     <Container>
       {categories.map((item) => (
         <Wrapper key={item.id}>
-          <Link href={`/products/${item.cat}`}>
+          <Link to={`/products/${item.cat}`}>
             <Image src={item.img} />
             <Info>
               <Title>{item.title}</Title>

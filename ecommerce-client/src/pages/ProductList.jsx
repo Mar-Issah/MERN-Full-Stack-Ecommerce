@@ -15,11 +15,9 @@ import Newsletter from '../components/Newsletter';
 
 const ProductList = () => {
   const location = useLocation(); //useParams
-  const cat = location.pathname.split('/')[2];
+  const cat = location.pathname.split('/')[2].toLowerCase();
   const [filters, setFilters] = useState({});
   const [sort, setSort] = useState('newest');
-
-  console.log(filters);
 
   const handleFilters = (e) => {
     const value = e.target.value;
