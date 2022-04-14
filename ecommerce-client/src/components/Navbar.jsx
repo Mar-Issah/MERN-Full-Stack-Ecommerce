@@ -19,7 +19,10 @@ const Navbar = () => {
           </SearchContainer>
         </Left>
         <Center>
-          <Logo>SIYA.</Logo>
+          <Link to='/'>
+            {' '}
+            <Logo>SIYA.</Logo>
+          </Link>
         </Center>
         <Right>
           <MenuItem>REGISTER</MenuItem>
