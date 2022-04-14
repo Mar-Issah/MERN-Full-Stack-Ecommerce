@@ -63,6 +63,8 @@ const ProductDetail = () => {
   };
 
   //addProduct accepts the payload to send to the cart
+  //quantity is not on prodeuct field but it is added to product filed
+  //without the dispatch react will not know whta addProduct fxn is
   const handleClick = () => {
     dispatch(addProduct({ ...product, quantity, color, size }));
   };
