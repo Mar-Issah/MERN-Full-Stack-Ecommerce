@@ -1,5 +1,5 @@
 import { Add, Remove } from '@mui/icons-material';
-// import { useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import Notice from '../components/Notice';
 import Footer from '../components/Footer';
 import Navbar from '../components/Navbar';
@@ -40,8 +40,10 @@ import {
 
 // const KEY = process.env.REACT_APP_STRIPE;
 
+//useSelector form react-redux accepts a fxn and returns the chosen state
+//from the cart in redux take the product and use in jsx
 const Cart = () => {
-  // const cart = useSelector((state) => state.cart);
+  const cart = useSelector((state) => state.cart);
   const [stripeToken, setStripeToken] = useState(null);
   // const history = useHistory();
 
@@ -81,7 +83,7 @@ const Cart = () => {
         </Top>
         <Bottom>
           <Info>
-            {/* {cart.products.map((product) => (
+            {cart.products.map((product) => (
               <Product>
                 <ProductDetail>
                   <Image src={product.img} />
@@ -100,39 +102,36 @@ const Cart = () => {
                 </ProductDetail>
                 <PriceDetail>
                   <ProductAmountContainer>
+                    {/* add or remove in case the user changes their mind and want to add and remove from cart */}
                     <Add />
                     <ProductAmount>{product.quantity}</ProductAmount>
                     <Remove />
                   </ProductAmountContainer>
+                  {/* quantity when we click on the - and + btns and added to redux */}
                   <ProductPrice>$ {product.price * product.quantity}</ProductPrice>
                 </PriceDetail>
               </Product>
-            ))} */}
+            ))}
             <Hr />
           </Info>
           <Summary>
             <SummaryTitle>ORDER SUMMARY</SummaryTitle>
             <SummaryItem>
               <SummaryItemText>Subtotal</SummaryItemText>
-              <SummaryItemPrice>
-                ${/* {cart.total} */}
-                10
-              </SummaryItemPrice>
+              <SummaryItemPrice>${cart.total}</SummaryItemPrice>
             </SummaryItem>
             <SummaryItem>
               <SummaryItemText>Estimated Shipping</SummaryItemText>
               <SummaryItemPrice>$ 5.90</SummaryItemPrice>
             </SummaryItem>
             <SummaryItem>
+              {/* hardcoded shipping and discount */}
               <SummaryItemText>Shipping Discount</SummaryItemText>
               <SummaryItemPrice>$ -5.90</SummaryItemPrice>
             </SummaryItem>
             <SummaryItem type='total'>
               <SummaryItemText>Total</SummaryItemText>
-              <SummaryItemPrice>
-                $ 50
-                {/* {cart.total} */}
-              </SummaryItemPrice>
+              <SummaryItemPrice>${cart.total}</SummaryItemPrice>
             </SummaryItem>
             {/* <StripeCheckout name='Lama Shop' image='https://avatars.githubusercontent.com/u/1486366?v=4' billingAddress shippingAddress description={`Your total is $${cart.total}`} amount={cart.total * 100} token={onToken} stripeKey={KEY}>
               <Button>CHECKOUT NOW</Button>

@@ -1,6 +1,5 @@
 import styled from 'styled-components';
 import { mobile } from '../../responsive';
-import { Link } from 'react-router-dom';
 
 export const Container = styled.div`
   background-color: #c7c3c3;
@@ -39,9 +38,6 @@ export const Input = styled.input`
   ${mobile({ width: '50px' })}
 `;
 
-export const LinkLogo = styled(Link)`
-  text-decoration: none !important;
-`;
 export const Logo = styled.h3`
   color: #000;
   font-weight: bold;

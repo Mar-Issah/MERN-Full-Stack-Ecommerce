@@ -34,7 +34,7 @@ const Products = ({ cat, filters, sort }) => {
     getProducts();
   }, [cat]);
 
-  console.log(products);
+  //console.log(products);
 
   //we are on the productList with cat route param
 
