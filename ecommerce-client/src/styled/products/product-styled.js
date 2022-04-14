@@ -40,7 +40,7 @@ export const Price = styled.span`
 `;
 
 export const FilterContainer = styled.div`
-  width: 50%;
+  width: 80%;
   margin: 30px 0px;
   display: flex;
   justify-content: space-between;
