@@ -2,6 +2,7 @@ import ProductDetail from './pages/ProductDetail';
 import Home from './pages/Home';
 import Login from './pages/Login';
 import Cart from './pages/Cart';
+import SuccessPage from './pages/SuccessPage';
 import Register from './pages/Register';
 import ProductList from './pages/ProductList';
 import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom';
@@ -35,9 +36,9 @@ const App = () => {
         <Route path='/login'>{user ? <Redirect to='/' /> : <Login />}</Route>
         <Route path='/register'>{user ? <Redirect to='/' /> : <Register />}</Route>
 
-        {/* <Route path='/success'>
-    //  <Success />
-    // </Route>  */}
+        <Route path='/success'>
+          <SuccessPage />
+        </Route>
       </Switch>
     </Router>
   );
