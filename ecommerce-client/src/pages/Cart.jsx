@@ -6,7 +6,7 @@ import Navbar from '../components/Navbar';
 import StripeCheckout from 'react-stripe-checkout';
 import { useEffect, useState } from 'react';
 import { userRequest } from '../axiosInstance';
-import { useHistory } from 'react-router-dom';
+import { useHistory, Redirect } from 'react-router-dom';
 import {
   Container,
   Wrapper,
@@ -42,6 +42,8 @@ const KEY = process.env.REACT_APP_PUBLISHABLE_KEY;
 
 //useSelector form react-redux accepts a fxn and returns the chosen state
 //from the cart in redux take the product and use in jsx
+
+//if payment is successful it returns a token (stripeToken)
 const Cart = () => {
   const cart = useSelector((state) => state.cart);
   const [stripeToken, setStripeToken] = useState(null);
@@ -57,14 +59,17 @@ const Cart = () => {
         //userRequest from axios instance with token making sure it is the user
         const res = await userRequest.post('/checkout/payment', {
           tokenId: stripeToken.id,
+          //change hardcoded amount
           amount: 500,
         });
+        // history.push(path, state);
         history.push('/success', {
           stripeData: res.data,
           products: cart,
         });
       } catch {}
     };
+    //only when the token is available or when amount > 0
     stripeToken && makeRequest();
   }, [stripeToken, cart.total, history]);
   return (
@@ -134,7 +139,7 @@ const Cart = () => {
               <SummaryItemText>Total</SummaryItemText>
               <SummaryItemPrice>${cart.total}</SummaryItemPrice>
             </SummaryItem>
-            <StripeCheckout name='Lama Shop' image='https://avatars.githubusercontent.com/Mar-Issah' billingAddress shippingAddress description={`Your total is $${cart.total}`} amount={cart.total * 100} token={onToken} stripeKey={KEY}>
+            <StripeCheckout name='SIYA Shop' image='https://avatars.githubusercontent.com/Mar-Issah' billingAddress shippingAddress description={`Your total is $${cart.total}`} amount={cart.total * 100} token={onToken} stripeKey={KEY}>
               <Button>CHECKOUT NOW</Button>
             </StripeCheckout>
           </Summary>

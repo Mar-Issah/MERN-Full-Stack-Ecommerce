@@ -6,7 +6,6 @@ import SuccessPage from './pages/SuccessPage';
 import Register from './pages/Register';
 import ProductList from './pages/ProductList';
 import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom';
-// import Success from './pages/Success';
 // import { useSelector } from 'react-redux';
 
 //does not display all product unless user selects category from homepage

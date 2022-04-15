@@ -54,7 +54,7 @@ const Products = ({ cat, filters, sort }) => {
   }, [sort]);
 
   //this way the homapge without filter can display products()first 8
-  return <Container>{cat ? filteredProducts.map((item) => <ProductCard item={item} key={item.id} />) : products.slice(0, 8).map((item) => <ProductCard item={item} key={item.id} />)}</Container>;
+  return <Container>{cat ? filteredProducts.map((item, idx) => <ProductCard item={item} key={idx} />) : products.slice(0, 8).map((item, idx) => <ProductCard item={item} key={idx} />)}</Container>;
 };
 
 export default Products;

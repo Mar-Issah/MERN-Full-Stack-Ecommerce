@@ -6,7 +6,7 @@ import Newsletter from '../components/Newsletter';
 import { useLocation } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { publicRequest } from '../axiosInstance';
-import { addProduct } from '../redux/cartRedux';
+import { addProduct } from '../redux/cartSliceRedux';
 import { useDispatch } from 'react-redux';
 import {
   Container,
