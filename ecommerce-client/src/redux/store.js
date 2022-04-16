@@ -1,4 +1,4 @@
-import { configureStore } from '@reduxjs/toolkit';
+import { configureStore, combineReducers } from '@reduxjs/toolkit';
 import cartReducer from './cartSliceRedux';
 import userReducer from './userSliceRedux';
 import { persistStore, persistReducer, FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER } from 'redux-persist';
@@ -8,21 +8,26 @@ import storage from 'redux-persist/lib/storage';
 
 //https://redux-toolkit.js.org/usage/usage-guide for persit
 //copy and paste here persist code from site
+
 const persistConfig = {
   key: 'root',
   version: 1,
   storage,
 };
 
-const persistedReducer = persistReducer(persistConfig, userReducer);
+//combine reudecers to combine all the reducer in the app, save in the the perssit reducer to persist data
+const rootReducer = combineReducers({ user: userReducer, cart: cartReducer });
+const persistedReducer = persistReducer(persistConfig, rootReducer);
 
-export const store = () =>
-  configureStore({
-    reducer: {
-      cart: cartReducer,
-      user: persistedReducer,
-    },
-  });
+export const store = configureStore({
+  reducer: persistedReducer,
+  middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware({
+      serializableCheck: {
+        ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
+      },
+    }),
+});
 
 //add below to index.js
 export let persistor = persistStore(store);
