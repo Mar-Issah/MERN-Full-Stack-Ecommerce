@@ -42,6 +42,7 @@ export const Button = styled.button`
   padding: 15px 20px;
   background-color: #f5a42a;
   color: white;
+  font-weight: bold;
   cursor: pointer;
   margin-bottom: 10px;
   &:disabled {
