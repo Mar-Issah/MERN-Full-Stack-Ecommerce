@@ -6,17 +6,16 @@ import SuccessPage from './pages/SuccessPage';
 import Register from './pages/Register';
 import ProductList from './pages/ProductList';
 import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom';
-// import { useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 
 //does not display all product unless user selects category from homepage
 
 //when user clicks on product, accpts product id and goes to details page
 
-//if user is present then redirect to homepage
+//if user is present from the redux store, then redirect to homepage
 const App = () => {
-  //const user = useSelector((state) => state.user.currentUser);
+  const user = useSelector((state) => state.user.currentUser);
 
-  const user = true;
   return (
     <Router>
       <Switch>

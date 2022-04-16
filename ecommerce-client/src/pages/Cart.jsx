@@ -6,7 +6,7 @@ import Navbar from '../components/Navbar';
 import StripeCheckout from 'react-stripe-checkout';
 import { useEffect, useState } from 'react';
 import { userRequest } from '../axiosInstance';
-import { useHistory, Redirect } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import {
   Container,
   Wrapper,
