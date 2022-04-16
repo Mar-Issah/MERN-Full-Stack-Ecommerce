@@ -45,7 +45,8 @@ export const Button = styled.button`
   cursor: pointer;
   margin-bottom: 10px;
   &:disabled {
-    color: green;
+    // when the btn is disabled make the color same as bg so you dont see the text
+    color: #f5a42a;
     cursor: not-allowed;
   }
   &:hover {

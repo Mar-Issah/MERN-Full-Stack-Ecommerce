@@ -9,9 +9,8 @@ const Login = () => {
   const [password, setPassword] = useState('');
   const dispatch = useDispatch();
 
-  console.log({ username, password });
   //to be able to use this flags in jsx whiles fetching
-  const { isFetching, error } = useSelector((state) => state.user);
+  const { isFetching, isError } = useSelector((state) => state.user);
 
   const handleClick = (e) => {
     e.preventDefault();
@@ -27,7 +26,7 @@ const Login = () => {
           <Button onClick={handleClick} disabled={isFetching}>
             LOGIN
           </Button>
-          {error && <Error>Something went wrong...</Error>}
+          {isError && <Error>Something went wrong...</Error>}
           <Link>FORGOT PASSWORD?</Link>
           <Link>CREATE A NEW ACCOUNT</Link>
         </Form>

@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux';
 import { useLocation } from 'react-router-dom';
 import { userRequest } from '../axiosInstance';
 
-const Success = (props) => {
+const Success = () => {
   const location = useLocation();
   const data = location.state.stripeData;
 
