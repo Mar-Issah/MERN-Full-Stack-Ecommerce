@@ -18,6 +18,8 @@ export default function UserList() {
       field: 'user',
       headerName: 'User',
       width: 200,
+      //renderCell is used to cutomize our row
+      //acept the param which is the row data and and access the field on it to render
       renderCell: (params) => {
         return (
           <div className='userListUser'>
@@ -55,6 +57,9 @@ export default function UserList() {
     },
   ];
 
+  //enable checkbox selection
+  //enable pagination
+  //disable selection on click will not select/tick the checkbox when you click the row. User can only tick the checkbox
   return (
     <div className='userList'>
       <DataGrid rows={data} disableSelectionOnClick columns={columns} pageSize={8} checkboxSelection />
