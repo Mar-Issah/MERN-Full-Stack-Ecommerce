@@ -14,16 +14,17 @@ import NewProduct from './pages/newProduct/NewProduct';
 function App() {
   return (
     <Router>
-      <Topbar />
-      <div className='container'>
-        <Sidebar />
-        <Switch>
+      <Switch>
+        <Route exact path='/login'>
+          <Login />
+        </Route>
+        <Topbar />
+        <div className='container'>
+          <Sidebar />
           <Route exact path='/'>
             <Home />
           </Route>
-          <Route exact path='/login'>
-            <Login />
-          </Route>
+
           <Route path='/users'>
             <UserList />
           </Route>
@@ -42,8 +43,8 @@ function App() {
           <Route path='/newproduct'>
             <NewProduct />
           </Route>
-        </Switch>
-      </div>
+        </div>
+      </Switch>
     </Router>
   );
 }

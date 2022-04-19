@@ -1,12 +1,16 @@
 import { useState } from 'react';
+import './login.css';
+import { useDispatch } from 'react-redux';
+import { login } from '../../redux/apiCalls';
 
 const Login = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+  const dispatch = useDispatch();
 
   const handleClick = (e) => {
     e.preventDefault();
-    console.log({ username, password });
+    login(dispatch, { username, password });
   };
 
   return (
@@ -14,8 +18,8 @@ const Login = () => {
       <form>
         <input type='text' placeholder='Enter username' onChange={(e) => setUsername(e.target.value)} />
         <input type='text' placeholder='Enter password' onChange={(e) => setPassword(e.target.value)} />
+        <input type='submit' className='btn' value='LOGIN' onClick={handleClick} />
       </form>
-      <input type='submit' value='Login' onClick={handleClick} />
     </div>
   );
 };
