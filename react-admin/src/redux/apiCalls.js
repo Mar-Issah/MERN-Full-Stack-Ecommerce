@@ -1,4 +1,4 @@
-import { loginFailure, loginStart, loginSuccess } from './userSliceRedux';
+import { loginFailure, loginStart, loginSuccess } from './adminUserSlice';
 import { publicRequest, userRequest } from '../axiosInstance';
 
 // the dispatch can also be made directly in the page/component

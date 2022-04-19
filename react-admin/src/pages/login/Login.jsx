@@ -17,7 +17,7 @@ const Login = () => {
     <div className='login-container'>
       <form>
         <input type='text' placeholder='Enter username' onChange={(e) => setUsername(e.target.value)} />
-        <input type='text' placeholder='Enter password' onChange={(e) => setPassword(e.target.value)} />
+        <input type='password' placeholder='Enter password' onChange={(e) => setPassword(e.target.value)} />
         <input type='submit' className='btn' value='LOGIN' onClick={handleClick} />
       </form>
     </div>
