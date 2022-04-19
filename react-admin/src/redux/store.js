@@ -1,6 +1,5 @@
-import { configureStore, combineReducers } from '@reduxjs/toolkit';
-import cartReducer from './cartSliceRedux';
-import userReducer from './userSliceRedux';
+import { configureStore } from '@reduxjs/toolkit';
+import adminUserReducer from './adminUserSlice';
 import { persistStore, persistReducer, FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 
@@ -16,8 +15,8 @@ const persistConfig = {
 };
 
 //combine reudecers to combine all the reducer in the app, save in the the perssit reducer to persist data
-const rootReducer = combineReducers({ user: userReducer, cart: cartReducer });
-const persistedReducer = persistReducer(persistConfig, rootReducer);
+// const rootReducer = combineReducers({ user: userReducer, cart: cartReducer });
+const persistedReducer = persistReducer(persistConfig, adminUserReducer);
 
 export const store = configureStore({
   reducer: persistedReducer,
