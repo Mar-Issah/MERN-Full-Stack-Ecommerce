@@ -6,7 +6,8 @@ import { publicRequest, userRequest } from '../axiosInstance';
 export const login = async (dispatch, user) => {
   dispatch(loginStart());
   try {
-    const res = await userRequest.post('/login', user);
+    // const res = await publicRequest.post('/login', user);
+    const res = await publicRequest.post('/login', user);
     dispatch(loginSuccess(res.data));
   } catch (err) {
     dispatch(loginFailure());
