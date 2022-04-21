@@ -64,6 +64,7 @@ router.get('/search/:id', verifyTokenAndAdmin, (req, res) => {
 //GET ALL USER
 //we can use quety params to filter our search. so if there is no query paramsn on the url return all users
 //http://localhost:5000/api/users/?new=true first sort by id and limit array to 5 users
+//sort:-1 for descending & 1 for ascending
 router.get('/', verifyTokenAndAdmin, async (req, res) => {
   const query = req.query.new;
   try {
