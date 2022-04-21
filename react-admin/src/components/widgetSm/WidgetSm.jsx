@@ -10,73 +10,31 @@ export default function WidgetSm() {
   useEffect(() => {
     const getUsers = async () => {
       try {
-        const res = await userRequest.get('users/?new=true');
+        const res = await userRequest.get('/users/?new=true');
         setUsers(res.data);
       } catch (err) {}
     };
     getUsers();
-  });
+  }, []);
 
-  console.log(users);
+  // console.log(users);
   return (
     <div className='widgetSm'>
       <span className='widgetSmTitle'>New Join Members</span>
       <ul className='widgetSmList'>
-        <li className='widgetSmListItem'>
-          <img src='https://avatars.githubusercontent.com/Mar-Issah' alt='' className='widgetSmImg' />
-          <div className='widgetSmUser'>
-            <span className='widgetSmUsername'>Anna Keller</span>
-            <span className='widgetSmUserTitle'>Software Engineer</span>
-          </div>
-          <button className='widgetSmButton'>
-            <Visibility className='widgetSmIcon' />
-            Display
-          </button>
-        </li>
-        <li className='widgetSmListItem'>
-          <img src='https://avatars.githubusercontent.com/Mar-Issah' alt='' className='widgetSmImg' />
-          <div className='widgetSmUser'>
-            <span className='widgetSmUsername'>Anna Keller</span>
-            <span className='widgetSmUserTitle'>Software Engineer</span>
-          </div>
-          <button className='widgetSmButton'>
-            <Visibility className='widgetSmIcon' />
-            Display
-          </button>
-        </li>
-        <li className='widgetSmListItem'>
-          <img src='https://avatars.githubusercontent.com/Mar-Issah' alt='' className='widgetSmImg' />
-          <div className='widgetSmUser'>
-            <span className='widgetSmUsername'>Anna Keller</span>
-            <span className='widgetSmUserTitle'>Software Engineer</span>
-          </div>
-          <button className='widgetSmButton'>
-            <Visibility className='widgetSmIcon' />
-            Display
-          </button>
-        </li>
-        <li className='widgetSmListItem'>
-          <img src='https://avatars.githubusercontent.com/Mar-Issah' alt='' className='widgetSmImg' />
-          <div className='widgetSmUser'>
-            <span className='widgetSmUsername'>Anna Keller</span>
-            <span className='widgetSmUserTitle'>Software Engineer</span>
-          </div>
-          <button className='widgetSmButton'>
-            <Visibility className='widgetSmIcon' />
-            Display
-          </button>
-        </li>
-        <li className='widgetSmListItem'>
-          <img src='https://avatars.githubusercontent.com/Mar-Issah' alt='' className='widgetSmImg' />
-          <div className='widgetSmUser'>
-            <span className='widgetSmUsername'>Anna Keller</span>
-            <span className='widgetSmUserTitle'>Software Engineer</span>
-          </div>
-          <button className='widgetSmButton'>
-            <Visibility className='widgetSmIcon' />
-            Display
-          </button>
-        </li>
+        {users.map((user) => (
+          <li className='widgetSmListItem'>
+            <img src={user.img || 'https://avatars.githubusercontent.com/Mar-Issah'} alt='user' className='widgetSmImg' />
+            <div className='widgetSmUser'>
+              <span className='widgetSmUsername'>{user.firstname + user.lastname}</span>
+              <span className='widgetSmUserTitle'>Software Engineer</span>
+            </div>
+            <button className='widgetSmButton'>
+              <Visibility className='widgetSmIcon' />
+              Display
+            </button>
+          </li>
+        ))}
       </ul>
     </div>
   );
