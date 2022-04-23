@@ -21,7 +21,7 @@ export default function Home() {
     const getStats = async () => {
       try {
         const res = await userRequest.get('/users/stats');
-        res.data.map((item) => setUserStats((prev) => [...prev, { name: MONTHS[item._id - 1], 'Active Users': item.total }]));
+        res.data.map((item) => setUserStats((prev) => [...prev, { name: MONTHS[item._id - 1], 'Active User': item.total }]));
       } catch (err) {}
     };
     getStats();
@@ -30,7 +30,8 @@ export default function Home() {
   return (
     <div className='home'>
       <FeaturedInfo />
-      <Chart data={userData} title='User Analytics' grid dataKey='Active User' />
+      {/* userdata from dummyData */}
+      <Chart data={userStats} title='User Analytics' grid dataKey='Active User' />
       <div className='homeWidgets'>
         <WidgetSm />
         <WidgetLg />

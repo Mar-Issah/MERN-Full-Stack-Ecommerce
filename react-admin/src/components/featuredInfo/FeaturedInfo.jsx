@@ -1,15 +1,36 @@
 import './featuredInfo.css';
+import { useState, useEffect } from 'react';
+import { userRequest } from '../../axiosInstance';
 import { ArrowDownward, ArrowUpward } from '@material-ui/icons';
 
 export default function FeaturedInfo() {
+  const [income, setIncome] = useState([]);
+  const [percentage, setPercentage] = useState([]);
+
+  //on component mount or update get orders to populatr the table in jsx
+  //In orther to get the user image we can get userId from order data and use id to find user
+  useEffect(() => {
+    const getIncome = async () => {
+      try {
+        const res = await userRequest.get('/orders/income');
+        setIncome(res.data);
+        //math: prev sales is this % more than two months sales
+        setPercentage((res.data[1].total * 100) / res.data[0].total - 100);
+      } catch (err) {}
+    };
+    getIncome();
+  }, []);
+  console.log(income);
+  console.log(percentage);
   return (
     <div className='featured'>
       <div className='featuredItem'>
         <span className='featuredTitle'>Revenue</span>
         <div className='featuredMoneyContainer'>
-          <span className='featuredMoney'>$2,415</span>
+          <span className='featuredMoney'>${income[1].total}</span>
           <span className='featuredMoneyRate'>
-            -11.4 <ArrowDownward className='featuredIcon negative' />
+            {/* round % and if neg use the downward icon and vice versa */}%{Math.floor(percentage)}
+            {percentage < 0 ? <ArrowDownward className='featuredIcon negative' /> : <ArrowDownward className='featuredIcon negative' />}
           </span>
         </div>
         <span className='featuredSub'>Compared to last month</span>
