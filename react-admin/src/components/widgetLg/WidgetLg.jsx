@@ -1,6 +1,7 @@
 import './widgetLg.css';
 import { useState, useEffect } from 'react';
 import { userRequest } from '../../axiosInstance';
+import { format } from 'timeago.js'; //to format createdAt data
 
 export default function WidgetLg() {
   const [orders, setOrders] = useState([]);
@@ -16,7 +17,7 @@ export default function WidgetLg() {
     };
     getOrders();
   }, []);
-  console.log(orders);
+  // console.log(orders);
   const Button = ({ type }) => {
     return <button className={'widgetLgButton ' + type}>{type}</button>;
   };
@@ -39,7 +40,7 @@ export default function WidgetLg() {
                 {/* <img src='https://images.pexels.com/photos/4172933/pexels-photo-4172933.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940' alt='' className='widgetLgImg' /> */}
                 <span className='widgetLgName'>{order.userId}</span>
               </td>
-              <td className='widgetLgDate'>{order.createdAt}</td>
+              <td className='widgetLgDate'>{format(order.createdAt)}</td>
               <td className='widgetLgAmount'>${order.amount}.00</td>
               <td className='widgetLgStatus'>
                 <Button type={order.status} />
