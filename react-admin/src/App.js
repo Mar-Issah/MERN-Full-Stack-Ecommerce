@@ -16,7 +16,7 @@ function App() {
   //access the isAdmin field on the user from LS
   //also useSelector from react redux
   // const isAdmin = JSON.parse(JSON.parse(localStorage.getItem('persist:root'))?.user)?.isAdmin;
-  const isAdmin = useSelector((state) => state.user.currentUser.isAdmin);
+  const isAdmin = useSelector((state) => state.user.currentUser?.isAdmin);
 
   return (
     <Router>
