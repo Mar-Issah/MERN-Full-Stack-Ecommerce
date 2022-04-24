@@ -12,9 +12,9 @@ export default function FeaturedInfo() {
     const getIncome = async () => {
       try {
         const res = await userRequest.get('/orders/income');
-        setIncome(res.data);
+        if (res) setIncome(res.data);
         //math: prev sales is this % more than two months sales
-        setPercentage((res.data[1].total * 100) / res.data[0].total - 100);
+        if (res) setPercentage((res.data[1].total * 100) / res.data[0].total - 100);
       } catch (err) {}
     };
     getIncome();
@@ -26,7 +26,8 @@ export default function FeaturedInfo() {
       <div className='featuredItem'>
         <span className='featuredTitle'>Revenue</span>
         <div className='featuredMoneyContainer'>
-          <span className='featuredMoney'>${income[1].total}</span>
+          {/* <span className='featuredMoney'>${income && income[1].total}</span> */}
+          <span className='featuredMoney'>$20</span>
           <span className='featuredMoneyRate'>
             {/* round % and if neg use the downward icon and vice versa */}%{Math.floor(percentage)}
             {percentage < 0 ? <ArrowDownward className='featuredIcon negative' /> : <ArrowDownward className='featuredIcon negative' />}
