@@ -7,8 +7,7 @@ export default function FeaturedInfo() {
   const [income, setIncome] = useState([]);
   const [percentage, setPercentage] = useState([]);
 
-  //on component mount or update get orders to populatr the table in jsx
-  //In orther to get the user image we can get userId from order data and use id to find user
+  //on component mount or update get last two month income
   useEffect(() => {
     const getIncome = async () => {
       try {
@@ -20,8 +19,8 @@ export default function FeaturedInfo() {
     };
     getIncome();
   }, []);
-  console.log(income);
-  console.log(percentage);
+  // console.log(income);
+  // console.log(percentage);
   return (
     <div className='featured'>
       <div className='featuredItem'>
