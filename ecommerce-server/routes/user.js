@@ -77,7 +77,8 @@ router.get('/', verifyTokenAndAdmin, async (req, res) => {
 });
 
 //Stats if you  want to return user in a given period/ month
-//go to notespad
+//go to notespad monogdb
+
 router.get('/stats', verifyTokenAndAdmin, async (req, res) => {
   const date = new Date();
   const lastYear = new Date(date.setFullYear(date.getFullYear() - 1));

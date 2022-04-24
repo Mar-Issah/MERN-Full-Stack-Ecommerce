@@ -69,7 +69,7 @@ router.get('/', verifyTokenAndAdmin, async (req, res) => {
 
 // GET MONTHLY INCOME
 //income if you  want to return income made from orders in a given period/ month
-//got to notepad
+//got to notepad mongodb
 router.get('/income', verifyTokenAndAdmin, async (req, res) => {
   const productId = req.query.pid;
   const date = new Date();
