@@ -1,5 +1,6 @@
 import './newProduct.css';
 import { useState } from 'react';
+import { getStorage, ref, uploadBytesResumable, getDownloadURL } from 'firebase/storage';
 
 //shows how to handle multple inputs in one state
 //categories are seperated because it is an array
@@ -21,8 +22,8 @@ export default function NewProduct() {
   const handleCategories = (e) => {
     setCat(e.target.value.split(','));
   };
-  console.log(inputs);
-  console.log(cat);
+
+  const handleClick = (e) => {};
 
   return (
     <div className='newProduct'>
@@ -55,7 +56,9 @@ export default function NewProduct() {
             <option value='false'>No</option>
           </select>
         </div>
-        <button className='addProductButton'>Create</button>
+        <button className='addProductButton' onClick={handleClick}>
+          Create
+        </button>
       </form>
     </div>
   );
