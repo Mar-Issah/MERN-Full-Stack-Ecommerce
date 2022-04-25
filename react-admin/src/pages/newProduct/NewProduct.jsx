@@ -2,6 +2,8 @@ import './newProduct.css';
 import { useState } from 'react';
 import { getStorage, ref, uploadBytesResumable, getDownloadURL } from 'firebase/storage';
 import app from '../../firebase';
+import { useDispatch } from 'react-redux';
+import { addProduct } from '../../redux/apiCalls';
 
 //shows how to handle multple inputs in one state
 //categories are seperated because it is an array
@@ -10,11 +12,11 @@ export default function NewProduct() {
   const [file, setFile] = useState(null);
   const [cat, setCat] = useState([]);
 
+  const dispatch = useDispatch();
   //handling muliple inputs using event name
   //prev; make sure it doesnt reuturn a new object since there are multiple fields
   //make sure name are exact name in db
   const handleChange = (e) => {
-    console.log(e);
     setInputs((prev) => {
       return { ...prev, [e.target.name]: e.target.value };
     });
@@ -60,13 +62,13 @@ export default function NewProduct() {
         // Handle successful uploads on complete
         // For instance, get the download URL: https://firebasestorage.googleapis.com/...
         getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
-          console.log({ ...inputs, img: downloadURL, categories: cat });
+          //use all the stae to get your updated products and dispatch to server
+          const product = { ...inputs, img: downloadURL, categories: cat };
+          addProduct(dispatch, product);
         });
       }
     );
   };
-
-  console.log(file);
 
   return (
     <div className='newProduct'>

@@ -28,6 +28,10 @@ const userSlice = createSlice({
       state.isFetching = false;
       state.isError = true;
     },
+    //when user clicks on logout
+    logout: (state, _action) => {
+      state.currentUser = {};
+    },
   },
 });
 

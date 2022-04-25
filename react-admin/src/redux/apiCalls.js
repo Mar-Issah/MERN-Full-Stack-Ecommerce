@@ -65,7 +65,7 @@ export const updateProduct = async (dispatch, id, product) => {
 export const addProduct = async (dispatch, product) => {
   dispatch(deleteProductStart());
   try {
-    const res = await userRequest.post(`/products`, { product });
+    const res = await userRequest.post(`/products/create`, product);
     dispatch(deleteProductSuccess(res.data));
   } catch (err) {
     dispatch(deleteProductFailure());
