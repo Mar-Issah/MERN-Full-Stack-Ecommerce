@@ -1,6 +1,7 @@
 import './newProduct.css';
 import { useState } from 'react';
 import { getStorage, ref, uploadBytesResumable, getDownloadURL } from 'firebase/storage';
+import app from '../../firebase';
 
 //shows how to handle multple inputs in one state
 //categories are seperated because it is an array
@@ -9,7 +10,7 @@ export default function NewProduct() {
   const [file, setFile] = useState(null);
   const [cat, setCat] = useState([]);
 
-  //handling muliple inputs using name
+  //handling muliple inputs using event name
   //prev; make sure it doesnt reuturn a new object since there are multiple fields
   //make sure name are exact name in db
   const handleChange = (e) => {
@@ -18,12 +19,54 @@ export default function NewProduct() {
       return { ...prev, [e.target.name]: e.target.value };
     });
   };
-  //use the split method to  seprate the CSV
+  //use the split method to seprate the CSV
   const handleCategories = (e) => {
     setCat(e.target.value.split(','));
   };
 
-  const handleClick = (e) => {};
+  const handleClick = (e) => {
+    e.preventDefault();
+    const fileName = new Date().getTime() + file.name;
+    const storage = getStorage(app);
+    const storageRef = ref(storage, fileName);
+
+    const uploadTask = uploadBytesResumable(storageRef, file);
+
+    // Register three observers:
+    // 1. 'state_changed' observer, called any time the state changes
+    // 2. Error observer, called on failure
+    // 3. Completion observer, called on successful completion
+    uploadTask.on(
+      'state_changed',
+      (snapshot) => {
+        // Observe state change events such as progress, pause, and resume
+        // Get task progress, including the number of bytes uploaded and the total number of bytes to be uploaded
+        const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+        console.log('Upload is ' + progress + '% done');
+        switch (snapshot.state) {
+          case 'paused':
+            console.log('Upload is paused');
+            break;
+          case 'running':
+            console.log('Upload is running');
+            break;
+          default:
+        }
+      },
+      (error) => {
+        // Handle unsuccessful uploads
+      },
+      () => {
+        // Handle successful uploads on complete
+        // For instance, get the download URL: https://firebasestorage.googleapis.com/...
+        getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
+          console.log({ ...inputs, img: downloadURL, categories: cat });
+        });
+      }
+    );
+  };
+
+  console.log(file);
 
   return (
     <div className='newProduct'>
@@ -31,7 +74,7 @@ export default function NewProduct() {
       <form className='addProductForm'>
         <div className='addProductItem'>
           <label>Image</label>
-          <input type='file' id='file' onChange={(e) => setFile(e.target.files)[0]} />
+          <input type='file' id='file' onChange={(e) => setFile(e.target.files[0])} />
         </div>
         <div className='addProductItem'>
           <label>Title</label>
@@ -43,7 +86,7 @@ export default function NewProduct() {
         </div>
         <div className='addProductItem'>
           <label>Price</label>
-          <input name='price' type='text' placeholder='Price' onChange={handleChange} />
+          <input name='price' type='number' placeholder='Price' onChange={handleChange} />
         </div>
         <div className='addProductItem'>
           <label>Categories</label>
